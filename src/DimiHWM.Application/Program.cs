@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSwaggerGen();
 
     builder.Configuration
-   .SetBasePath(Directory.GetCurrentDirectory() + "\\Settings")
-   .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true);
+        .SetBasePath(Directory.GetCurrentDirectory() + "\\Settings")
+        .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true);
 
     builder.Services.AddInfrastructure(builder.Configuration);
 }
