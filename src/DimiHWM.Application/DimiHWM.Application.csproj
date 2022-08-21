@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DimiHWM.Domain\DimiHWM.Domain.csproj" />
+    <ProjectReference Include="..\DimiHWM.Infrastructure\DimiHWM.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,3 +1,5 @@
+using DimiHWM.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
@@ -5,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
 
     builder.Services.AddSwaggerGen();
+
+    builder.Configuration
+   .SetBasePath(Directory.GetCurrentDirectory() + "\\Settings")
+   .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true);
+
+    builder.Services.AddInfrastructure(builder.Configuration);
 }
 
 var app = builder.Build();
@@ -15,9 +23,5 @@ var app = builder.Build();
 
     app.MapControllers();
 }
-
-builder.Configuration
-   .SetBasePath(Directory.GetCurrentDirectory() + "\\Settings")
-   .AddJsonFile($"appsettings.{app.Environment.EnvironmentName}.json", true, true);
 
 app.Run();
