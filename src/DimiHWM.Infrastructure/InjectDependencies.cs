@@ -8,7 +8,7 @@ namespace DimiHWM.Infrastructure
     public static class InjectDependencies
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        { 
+        {
             services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
